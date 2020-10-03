@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import theme from '../theme';
-import AppBarTab from './AppBarTab';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,15 +9,12 @@ const styles = StyleSheet.create({
     paddingLeft: Constants.statusBarHeight / 2,
     paddingBottom: Constants.statusBarHeight / 2,
     backgroundColor: theme.colors.textSecondary,
+    flexDirection: 'row',
   },
 });
 
-const AppBar = () => {
-  return (
-    <View style={styles.container}>
-      <AppBarTab tabName="Repositories" />
-    </View>
-  );
+const AppBar = ({ children }) => {
+  return <View style={styles.container}>{children}</View>;
 };
 
 export default AppBar;

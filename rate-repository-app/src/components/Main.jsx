@@ -1,23 +1,36 @@
 import React from 'react';
-import Constants from 'expo-constants';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Route, Link, Switch } from 'react-router-native';
 import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
 import theme from '../theme';
+import SignIn from './SignIn';
+import AppBarTab from './AppBarTab';
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: theme.colors.textPrimary,
     flexGrow: 1,
     flexShrink: 1,
-    backgroundColor: theme.colors.textPrimary,
   },
 });
 
 const Main = () => {
   return (
     <View style={styles.container}>
-      <AppBar />
-      <RepositoryList />
+      <AppBar>
+        <Link to="/">
+          <AppBarTab tabName="Repositories" />
+        </Link>
+        <Link to="/signin" activeOpacity={0.8}>
+          <AppBarTab tabName="Sign in" />
+        </Link>
+      </AppBar>
+
+      <Switch>
+        <Route path="/signin" component={SignIn} />
+        <Route exact path="/" component={RepositoryList} />
+      </Switch>
     </View>
   );
 };
