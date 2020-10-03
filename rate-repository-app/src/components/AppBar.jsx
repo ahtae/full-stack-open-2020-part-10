@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
     paddingLeft: Constants.statusBarHeight / 2,
     paddingBottom: Constants.statusBarHeight / 2,
-    backgroundColor: theme.colors.textPrimary,
+    backgroundColor: theme.colors.textSecondary,
   },
 });
 
