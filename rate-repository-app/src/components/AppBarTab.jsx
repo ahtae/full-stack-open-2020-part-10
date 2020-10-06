@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   text: {
@@ -8,6 +9,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginRight: 10,
     backgroundColor: 'transparent',
+    fontFamily: theme.fonts.main,
   },
   tab: { backgroundColor: 'transparent' },
 });

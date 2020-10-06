@@ -18,8 +18,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   buttonText: {
+    fontFamily: theme.fonts.main,
     backgroundColor: theme.colors.primary,
-    color: theme.colors.textPrimary,
+    color: 'white',
     fontSize: 15,
     textAlign: 'center',
     fontWeight: 'bold',
@@ -39,7 +40,7 @@ const SignIn = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleBlur, handleSubmit, values }) => (
+        {({ handleSubmit }) => (
           <View>
             <FormikTextInput name="username" placeholder="Username" />
             <FormikTextInput

@@ -8,9 +8,11 @@ const styles = StyleSheet.create({
   errorText: {
     marginTop: 5,
     color: theme.colors.error,
+    fontFamily: theme.fonts.main,
     marginLeft: 15,
   },
   textInput: {
+    fontFamily: theme.fonts.main,
     height: 50,
     borderColor: 'gray',
     borderWidth: 1,
