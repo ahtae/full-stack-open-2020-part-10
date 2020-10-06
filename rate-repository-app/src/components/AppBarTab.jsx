@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-  Alert,
-} from 'react-native';
-import { Route, Switch, Redirect, Link, useHistory } from 'react-router-native';
-import theme from '../theme'
+import { Text, StyleSheet, View } from 'react-native';
 
 const styles = StyleSheet.create({
   text: {
@@ -15,14 +7,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginRight: 10,
-    backgroundColor: 'transparent'
-  }
+    backgroundColor: 'transparent',
+  },
+  tab: { backgroundColor: 'transparent' },
 });
 
 const AppBarTab = ({ tabName }) => {
-  return <View style={{backgroundColor: 'transparent'}}>
-    <Text style={styles.text}>{tabName}</Text>
+  return (
+    <View style={styles.tab}>
+      <Text style={styles.text}>{tabName}</Text>
     </View>
+  );
 };
 
 export default AppBarTab;
