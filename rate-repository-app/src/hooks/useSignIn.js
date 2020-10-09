@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { useContext } from 'react';
 import AuthStorageContext from '../contexts/AuthStorageContext';
@@ -15,8 +14,8 @@ const useSignIn = () => {
       variables: { credentials: { username, password } },
     });
 
-    authStorage.setAccessToken(data.authorize.accessToken);
-    apolloClient.resetStore();
+    await authStorage.setAccessToken(data.authorize.accessToken);
+    await apolloClient.resetStore();
   };
 
   return [signIn, result];
