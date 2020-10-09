@@ -16,13 +16,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoryStatistic = ({ label, value }) => {
-  const roundedValue =
-    value > 999 ? `${Math.abs(value / 1000).toFixed(1)}k` : value;
+export const roundValue = (value) =>
+  value > 999 ? `${Math.abs(value / 1000).toFixed(1)}k` : value;
+
+const RepositoryStatistic = ({ label, value, testID }) => {
+  const roundedValue = roundValue(value);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.valueText}>{roundedValue}</Text>
+      <Text testID={testID} style={styles.valueText}>
+        {roundedValue}
+      </Text>
       <Text style={styles.labelText}>{label}</Text>
     </View>
   );

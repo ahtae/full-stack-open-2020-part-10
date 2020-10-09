@@ -55,17 +55,28 @@ const RepositoryItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <View style={styles.details}>
-        <Image style={styles.avatar} source={{ uri: ownerAvatarUrl }} />
+        <Image
+          testID="ownerAvatarUrl"
+          style={styles.avatar}
+          source={{ uri: ownerAvatarUrl }}
+        />
         <View style={styles.textContainer}>
-          <Text style={styles.fullName}>{fullName}</Text>
-          <Text style={styles.description}>{description}</Text>
+          <Text testID="fullName" style={styles.fullName}>
+            {fullName}
+          </Text>
+          <Text testID="description" style={styles.description}>
+            {description}
+          </Text>
           <View
             style={{
               ...styles.languageContainer,
               width: language.length * 8.9,
             }}
           >
-            <Text style={{ ...styles.language, width: language.length * 11 }}>
+            <Text
+              testID="language"
+              style={{ ...styles.language, width: language.length * 11 }}
+            >
               {language}
             </Text>
           </View>

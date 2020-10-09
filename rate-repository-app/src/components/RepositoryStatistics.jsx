@@ -21,10 +21,26 @@ const RepositoryStatistics = ({
 }) => {
   return (
     <View style={styles.container}>
-      <RepositoryStatistic value={stargazersCount} label="Stars" />
-      <RepositoryStatistic value={forksCount} label="Forks" />
-      <RepositoryStatistic value={reviewCount} label="Reviews" />
-      <RepositoryStatistic value={ratingAverage} label="Rating" />
+      <RepositoryStatistic
+        testID="stargazersCount"
+        value={stargazersCount}
+        label="Stars"
+      />
+      <RepositoryStatistic
+        testID="forksCount"
+        value={forksCount}
+        label="Forks"
+      />
+      <RepositoryStatistic
+        testID="reviewCount"
+        value={reviewCount}
+        label="Reviews"
+      />
+      <RepositoryStatistic
+        testID="ratingAverage"
+        value={ratingAverage}
+        label="Rating"
+      />
     </View>
   );
 };
