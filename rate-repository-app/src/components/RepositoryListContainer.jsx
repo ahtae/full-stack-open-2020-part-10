@@ -1,7 +1,14 @@
 import React from 'react';
-import { FlatList, View, Text, StyleSheet } from 'react-native';
+import {
+  FlatList,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import RepositoryItem from './RepositoryItem';
 import Notify from './Notify';
+import { useHistory } from 'react-router-native';
 
 const styles = StyleSheet.create({
   separator: {
@@ -16,11 +23,12 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = ({ repositories, error }) => {
+  const history = useHistory();
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
     : [];
 
-  if (!repositories) {
+  if (!repositories && !error) {
     return <Text style={styles.text}>Loading...</Text>;
   }
 
@@ -30,7 +38,11 @@ const RepositoryList = ({ repositories, error }) => {
       <FlatList
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
-        renderItem={(item) => <RepositoryItem item={item.item} />}
+        renderItem={(item) => (
+          <TouchableOpacity onPress={() => history.push(`\:${item.item.id}`)}>
+            <RepositoryItem item={item.item} />
+          </TouchableOpacity>
+        )}
       />
     </View>
   );
