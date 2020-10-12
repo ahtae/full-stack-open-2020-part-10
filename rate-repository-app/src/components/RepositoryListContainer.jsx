@@ -28,7 +28,7 @@ const RepositoryList = ({ repositories, error }) => {
     ? repositories.edges.map((edge) => edge.node)
     : [];
 
-  if (!repositories && !error) {
+  if (!repositories) {
     return <Text style={styles.text}>Loading...</Text>;
   }
 
